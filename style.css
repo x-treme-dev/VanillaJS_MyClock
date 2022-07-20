@@ -1,0 +1,202 @@
+@import url("fonts.css");
+
+body{
+	 
+	margin:0; /*Сразу уберем отступы*/
+	padding:0;
+}
+
+#banner{
+	display: flex;
+	align-items: center;
+    background: linear-gradient(180deg, #7D2373, #DD19B3);	
+    justify-content: center;
+    height: 100vh; /*Растянуть блок на весь экран*/
+	position: relative;
+}
+
+p{ 
+	font-family:'Amano';
+	font-size: 230%;
+	font-weight: bold;
+	position: absolute;
+	top: 1px;
+	letter-spacing: 3px;
+}
+
+
+/*Часы: циферблат со стрелками*/
+
+#center-dial{
+	
+	border-radius: 50%;
+	height: 25px;
+	width: 25px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	
+} 
+ 
+#dial{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+   /* border: 2px solid #dd303b; */
+	border-radius: 50%;
+	height: 350px;
+	width: 350px;
+	position: relative;
+}
+
+#dial:before{
+	content: "";
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	background: linear-gradient(180deg, #dd303b, #da78cf);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	z-index: 0;
+}
+
+/*Рисуем стрелки. Поместим стрелку в контейнер, которому зададим размеры, чтобы стрелка на выходила за определенные ей границы.
+ Через before нарисуем саму стрелку. Через border-radius зададим скугление. 
+*/
+#hour, #minute, #second{
+	position: absolute;
+}
+ 
+	#hour-arrow{
+	display: flex;
+    justify-content: center;
+    position: relative;
+    border-radius: 50%;	
+	width: 180px;
+	height: 180px;
+	
+   }
+   
+   #hour-arrow:before{
+		 content: '';
+		 position: absolute;
+		 width: 8px;
+		 height: 130px; /*удлиним стрелку*/
+		 background: #dd303b;
+		 z-index: 6;
+		 border-radius: 6px 6px 0 0; /*скругление стрелки*/
+	 }
+	 
+	 #minute-arrow{
+	display: flex;
+    justify-content: center;
+    position: relative;
+    border-radius: 50%;	
+	width: 260px;
+	height: 260px;
+	
+   }
+   
+   #minute-arrow:before{
+		 content: '';
+		 position: absolute;
+		 width: 8px;
+		 height: 170px; /*удлиним стрелку*/
+		 background: #0d0d0d;
+		 z-index: 5;
+		 border-radius: 6px 6px 0 0; /*скругление стрелки*/
+	 }
+ 
+
+ #second-arrow{
+	display: flex;
+    justify-content: center;
+    position: relative;
+    border-radius: 50%;	
+	width: 320px;
+	height: 320px;
+	
+   }
+   
+   #second-arrow:before{
+		 content: '';
+		 position: absolute;
+		 width: 4px;
+		 height: 200px; /*удлиним стрелку*/
+		 background: #0d0d0d;
+		 z-index: 4;
+		 border-radius: 6px 6px 0 0; /*скругление стрелки*/
+	 }
+ 
+ 
+
+span{
+	font-family: "Amano";
+	font-weight: bold;
+	font-size:350%;
+	position: absolute;
+	width: 120px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+}
+
+/*Нарисован циферблат с надписями вместо цифр. Использованы свойства прямоугольного треугольника.
+Т.к. цифеблат - это окружность, вписанная в круг и она имеет диаметр, который образует по отношению
+к оси Y некоторый угол (0,30,60 и т.д.), то сделав рисунок можно опредилить проекции на оси Y и X. Проекции и будут 
+точками для свойства transform translate. Таких точек 12.
+Положительное направление по оси Y: вниз от нуля (при использовании transform translate).
+*/
+ 
+
+ 
+span:nth-child(1){
+	 transform: translateY(-152px) translateX(88px);
+}
+
+span:nth-child(2){
+	transform: translateY(-88px) translateX(152px);
+}
+
+span:nth-child(3){
+	transform: translateX(175px);
+}
+
+span:nth-child(4){
+	transform: translateY(88px) translateX(152px);
+	 
+}
+
+span:nth-child(5){
+	 transform: translateY(152px) translateX(88px);
+}
+
+span:nth-child(6){
+	transform: translateY(175px);
+}
+
+span:nth-child(7){
+	 transform: translateY(152px) translateX(-88px);
+}
+
+span:nth-child(8){
+	 transform: translateY(88px) translateX(-152px);
+}
+
+
+span:nth-child(9){
+	 transform: translateX(-175px); 
+}
+
+span:nth-child(10){
+	  transform: translateY(-88px) translateX(-152px);
+}
+
+span:nth-child(11){
+	  transform: translateY(-152px) translateX(-88px);
+}
+
+span:nth-child(12){
+	transform: translateY(-175px);
+}
+
