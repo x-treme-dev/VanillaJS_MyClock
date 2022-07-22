@@ -16,14 +16,13 @@
  let hourArrow  = document.querySelector('#hour-arrow');
  let minuteArrow  = document.querySelector('#minute-arrow');
  let secondArrow  = document.querySelector('#second-arrow');
- 
- 
+
 function clock(){
 	let date = new Date();
 	let hour = date.getHours() % 12; // 0 - 12
 	let minutes = date.getMinutes();
 	let seconds = date.getSeconds();
-	
+	 
 	var hourDeg = hour * 30 + (minutes * 0.5); 
 	var minuteDeg = minutes * 6; // минутная стрелка поворачивается на 6 градусов за минуту, т.е. на 1 деление
 	var secondDeg = seconds * 6; /* секундная стрелка поворачивается на 6 градусов за секунду, 
@@ -42,7 +41,7 @@ function clock(){
 
 clock();
 
-
+//running string
 let p = document.querySelector('p');
 let text = p.innerHTML;
 
@@ -50,5 +49,11 @@ setInterval(function (){
     text = text.substring(1) + text[0];
     p.innerHTML = text;
 	 
-}, 1000);
+}, 500);
 
+  
+ 
+
+
+
+  

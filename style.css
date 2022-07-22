@@ -1,6 +1,6 @@
 @import url("fonts.css");
 
-body{
+body,p{
 	 
 	margin:0; /*Сразу уберем отступы*/
 	padding:0;
@@ -9,7 +9,8 @@ body{
 #banner{
 	display: flex;
 	align-items: center;
-    background: linear-gradient(180deg, #7D2373, #DD19B3);	
+    background: linear-gradient(180deg, #7D2373, #DD19B3);
+	 
     justify-content: center;
     height: 100vh; /*Растянуть блок на весь экран*/
 	position: relative;
@@ -17,26 +18,30 @@ body{
 
 p{ 
 	font-family:'Amano';
-	font-size: 230%;
+	font-size: 200%;
 	font-weight: bold;
+	 
 	position: absolute;
-	top: 1px;
+	top: 5%;
 	letter-spacing: 3px;
+}
+
+#rocket{
+	position:absolute;
+	top: 50%;
+	left:20%;
+	z-index: 7;
+	height: 150px;
+	width: 150px;
+}
+
+#rocket img{
+	width: 100%; /* 100% от родительского div */
 }
 
 
 /*Часы: циферблат со стрелками*/
 
-#center-dial{
-	
-	border-radius: 50%;
-	height: 25px;
-	width: 25px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	
-} 
  
 #dial{
 	display: flex;
@@ -47,6 +52,7 @@ p{
 	height: 350px;
 	width: 350px;
 	position: relative;
+	 
 }
 
 #dial:before{
